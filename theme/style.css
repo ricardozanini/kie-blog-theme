@@ -1,0 +1,473 @@
+/*
+Theme Name: Kogito
+Author: Kogito Authors
+Author URI: https://kogito.kie.org/
+Description: Kogito Blog Theme
+Version: 1.0.0
+Tags: bootstrap, sixteen, kogito, decision, rules, process, business automation
+Text Domain: kogito
+*/
+
+/*
+ * Base styles
+ */
+
+ body,
+ body h1,
+ body h2,
+ body h3,
+ body h4,
+ body h5,
+ body h6,
+ body a,
+ body a:link {
+   color: #475058;
+ }
+ 
+ body a,
+ body a:link {
+   text-decoration: none
+ }
+ 
+ input[type="email"]:focus,
+ input[type="number"]:focus,
+ input[type="password"]:focus,
+ input[type="search"]:focus,
+ input[type="tel"]:focus,
+ input[type="text"]:focus,
+ input[type="url"]:focus,
+ input:not([type]):focus,
+ textarea:focus,
+ select:focus {
+   border-color: #475058;
+   outline: 0;
+ }
+ 
+ body code {
+   white-space: initial;
+   word-wrap: break-word;
+ }
+ 
+ body pre {
+   padding: 15px 0 15px 15px;
+ }
+ 
+ body article p img {
+   box-shadow: none;
+ }
+ 
+ img.avatar.avatar-70 {
+   float: right;
+   width: 70px;
+   height: 70px;
+   margin: 0 10px;
+   border-radius: 100%;
+ }
+ 
+ /*
+  * Fix global styles defined by blog posts with custom styles
+  */
+ 
+ body h2 {
+   font-family: "Overpass",sans-serif;
+   font-weight: 800;
+   text-transform: uppercase;
+   letter-spacing: -0.1rem;
+   margin-bottom: 2rem;
+   margin-top: 0;
+   font-size: 3.6rem;
+   line-height: 1.25;
+   direction: initial;
+   text-align: initial;
+   break-inside: initial;
+   background: initial;
+   break-after: initial;
+ }
+ 
+ body table {
+   table-layout: fixed
+ }
+ 
+ body p,
+ body .blog-post-content div {
+   font-family: "PT Serif", serif;
+   font-size: 1.9rem;
+   margin-top: 0;
+   margin-bottom: 25px;
+   line-height: 1.75em;
+   background: initial;
+ }
+ 
+ /* [Fix for authors custom style] authors define custom styles inline */
+ body .blog-post-content [style],
+ body .blog-post-content ul,
+ body .blog-post-content li,
+ body .blog-post-content div.selectionShareable {
+   font-family: "PT Serif", serif !important; /* authors define custom font-family inline */
+ }
+ body .blog-post-content pre,
+ body .blog-post-content code,
+ body .blog-post-content pre *,
+ body .blog-post-content code *,
+ body .blog-post-content pre [style],
+ body .blog-post-content code [style] {
+   font-family: monospace !important;
+   line-height: 1.25em !important;
+   font-size: 0.9em !important;
+ }
+ body .blog-post-content [style],
+ body .blog-post-content .selectionShareable {
+   font-size: 1.9rem !important;  /* authors define custom font-size inline */
+   white-space: normal !important;  /* authors define custom white-space inline */
+   line-height: 1.75em !important; /* authors define custom line-height inline */
+   /* WARN: Do not set the margin-bottom here.
+    * authors define a custom margin-bottom value inline and the HTML strucutre
+    * of the posts does not allow the use of the '25px' (the standard value). */
+ }
+ body .blog-post-content h2 {
+   font-size: 3rem !important; /* authors define custom font-size inline */
+   margin: 25px 0 5px 0;
+ }
+ body .blog-post-content h2,
+ body .blog-post-content h2 span {
+   font-weight: 800 !important; /* authors define custom font-weight inline */
+ }
+ body .blog-post-content,
+ body .blog-post-content h1 *,
+ body .blog-post-content h1 *[style],
+ body .blog-post-content h1,
+ body .blog-post-content h1[style],
+ body .blog-post-content h2 *,
+ body .blog-post-content h2 *[style],
+ body .blog-post-content h2,
+ body .blog-post-content h2[style],
+ body .blog-post-content h3 *,
+ body .blog-post-content h3 *[style],
+ body .blog-post-content h3,
+ body .blog-post-content h3[style],
+ body .blog-post-content h4 *,
+ body .blog-post-content h4 *[style],
+ body .blog-post-content h4,
+ body .blog-post-content h4[style],
+ body .blog-post-content h5 *,
+ body .blog-post-content h5 *[style],
+ body .blog-post-content h5,
+ body .blog-post-content h5[style],
+ body .blog-post-content h6 *,
+ body .blog-post-content h6 *[style],
+ body .blog-post-content h6,
+ body .blog-post-content h6[style] {
+   font-family: "Overpass", sans-serif !important; /* authors define custom font-family inline */
+ }
+ 
+ /* [Fix for gist widget] Fix gist widget due to changes on [Fix for authors custom style] */
+ body .blog-post-content .gist .gist-meta a {
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji" !important;
+   font-size: 12px !important;  /* authors define custom font-size inline */
+   line-height: normal !important; /* authors define custom line-height inline */
+ }
+ body .blog-post-content .gist .gist-data,
+ body .blog-post-content .gist .gist-meta {
+   margin-bottom: 0;
+ }
+ 
+ /*
+  * Read more
+  */
+ .kie-read-more-anchor {
+   display: block;
+   text-align: right;
+   padding: 0 10px;
+   font-weight: bold;
+ }
+ 
+ /*
+  * Error pages
+  */
+ .error-page {
+   text-align: center;
+   padding: 100px;
+   height: calc(100vh - 340px);
+ }
+ 
+ .error-page h1 {
+   font-size: 5em;
+ }
+ 
+ /*
+  * Masthead for nav
+  */
+ 
+ .blog-masthead {
+   background-color: #428bca;
+   margin-bottom: 25px;
+   -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+           box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+ }
+ 
+ /* Nav links */
+ .blog-nav-item {
+   position: relative;
+   display: inline-block;
+   padding: 10px;
+   font-weight: 500;
+   color: #cdddeb;
+ }
+ .blog-nav-item:hover,
+ .blog-nav-item:focus {
+   color: #fff;
+   text-decoration: none;
+ }
+ 
+ /* Active state gets a caret at the bottom */
+ .blog-nav .active {
+   color: #fff;
+ }
+ .blog-nav .active:after {
+   position: absolute;
+   bottom: 0;
+   left: 50%;
+   width: 0;
+   height: 0;
+   margin-left: -5px;
+   vertical-align: middle;
+   content: " ";
+   border-right: 5px solid transparent;
+   border-bottom: 5px solid;
+   border-left: 5px solid transparent;
+ }
+ 
+ 
+ /*
+  * Blog name and description
+  */
+ 
+ .blog-header {
+   padding-top: 20px;
+   padding-bottom: 20px;
+ }
+ .blog-title {
+   margin-top: 30px;
+   margin-bottom: 0;
+   font-size: 60px;
+   font-weight: normal;
+ }
+ .blog-description {
+   font-size: 20px;
+   color: #999;
+ }
+ 
+ 
+ /*
+  * Main column and sidebar layout
+  */
+ 
+ .blog-main {
+   font-size: 18px;
+   line-height: 1.5;
+   width: 100%;
+ }
+ 
+ .blog-sidebar {
+   min-width: 260px;
+ }
+ 
+ /* Sidebar modules for boxing content */
+ .sidebar-module {
+   padding: 15px 15px 10px;
+   margin: 0 -15px 0;
+ }
+ .sidebar-module form {
+   margin-bottom: 0;
+ }
+ .sidebar-module-inset {
+   padding: 15px;
+   background-color: #f5f5f5;
+   border-radius: 4px;
+ }
+ .sidebar-module-inset p:last-child,
+ .sidebar-module-inset ul:last-child,
+ .sidebar-module-inset ol:last-child {
+   margin-bottom: 0;
+ }
+ .blog-sidebar ul {
+   list-style: none;
+ }
+ .blog-sidebar ul li {
+   margin-bottom: 0;
+ }
+ .blog-sidebar ul li h4 {
+   margin: 20px 0 5px;
+ }
+ .blog-sidebar ul li ul {
+   margin: 0;
+ }
+ .blog-sidebar ul li ul li input,
+ .blog-sidebar ul li ul li label {
+   display: inline-block;
+   margin: 0 5px;
+   vertical-align: middle;
+ }
+ .blog-sidebar ul li ul li label {
+   width: 80%;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+ }
+ .sidebar-module.sidebar-module--collapsed .sf-field-author {
+   max-height: 480px;
+   overflow: hidden;
+ }
+ 
+ .blog-sidebar .see-more-toggler {
+   float: right;
+   color: #475058;
+   font-weight: bold;
+   padding: 0 10px;
+ }
+ 
+ .blog-sidebar .close-button,
+ .blog-sidebar .kie-responsive-menu {
+   display: none;
+ }
+ 
+ @media(max-width: 900px) {
+   body p {
+     word-wrap: break-word;
+   }
+ 
+   body.responsive-menu-opened .row .column.blog-sidebar {
+     right: 0
+   }
+ 
+   main.blog-main.column.column-75 {
+     flex: 1 1 auto;
+     max-width: 100%;
+   }
+ 
+   .row .column.blog-sidebar {
+     width: 320px;
+     height: 100vh;
+     background: rgba(255, 255, 255, 0.9);
+     position: fixed;
+     z-index: 3;
+     top: 0;
+     right: -340px;
+     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+     border-left: 2px solid #5f5f5f;
+     padding: 10px 20px 50px 20px;
+     transition: right 0.5s;
+     transform: rotate3d(0, 0, 0, 0deg);
+     max-width: initial;
+     overflow-y: scroll;
+   }
+ 
+   .searchandfilter ul li li {
+     padding: 2px 0;
+   }
+ 
+   .blog-sidebar .kie-responsive-menu {
+     display: block;
+     margin: 80px 0 0;
+   }
+ 
+   .blog-sidebar .sf-field-search {
+     position: absolute;
+     top: 35px;
+   }
+ 
+   .blog-sidebar .kie-responsive-menu .close-button {
+     display: block;
+     width: 100%;
+     text-align: right;
+     outline: none;
+   }
+ 
+   .blog-sidebar .kie-responsive-menu h4 {
+     margin-top: 10px;
+     padding: 5px 0 10px;
+     font-size: 16px;
+   }
+ 
+   .blog-sidebar .kie-responsive-menu a {
+     font-size: 1.6rem;
+     font-weight: 700;
+   }
+ 
+   .blog-sidebar .close-button {
+     width: 100%;
+     text-align: right;
+     display: block
+   }
+ }
+ 
+ /* Pagination */
+ .pager {
+   margin-bottom: 60px;
+   text-align: left;
+ }
+ .pager > li > a {
+   width: 140px;
+   padding: 10px 20px;
+   text-align: center;
+   border-radius: 30px;
+ }
+ 
+ 
+ /*
+  * Blog posts
+  */
+ 
+ .blog-post {
+   margin-bottom: 60px;
+ }
+ .blog-post h2 {
+   padding: 5px 0 0;
+   margin: 0;
+ }
+ .blog-post-title {
+   margin-bottom: 5px;
+   font-size: 40px;
+ }
+ .blog-post-meta {
+   color: #999;
+   margin: 5px 0 15px;
+ }
+ .blog-post-meta .blog-post-meta-box {
+   font-size: 14px;
+   color: #FFFFFF;
+   font-weight: 500;
+   padding: 2px 12px;
+   margin-bottom: 2px;
+   margin-left: 10px;
+   display: inline-block;
+ }
+ .blog-post-meta .blog-post-meta-box + .blog-post-meta-box {
+   margin-left: 0;
+ }
+ .blog-post-meta .blog-post-meta-box.blog-post-meta-box--category {
+   background-color: #5aba59
+ }
+ .blog-post-meta .blog-post-meta-box.blog-post-meta-box--term {
+   background-color: #4d85d1
+ }
+ .blog-post-meta .blog-post-meta-term:hover,
+ .blog-post-meta .blog-post-meta-category:hover {
+   text-decoration: underline;
+ }
+ 
+ /*
+  * Footer
+  */
+ 
+ .blog-footer {
+   padding: 40px 0;
+   color: #999;
+   text-align: center;
+   background-color: #f9f9f9;
+   border-top: 1px solid #e5e5e5;
+ }
+ .blog-footer p:last-child {
+   margin-bottom: 0;
+ }
+ 

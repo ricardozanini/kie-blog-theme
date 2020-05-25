@@ -1,0 +1,8 @@
+# Files to exclude when creating archive.
+
+*.git export-ignore
+*.gitignore export-ignore
+*.gitattributes export-ignore
+.jscsrc export-ignore
+.jshintignore export-ignore
+kubernetes export-ignore

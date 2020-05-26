@@ -46,8 +46,8 @@ get_header(); ?>
 					// Previous/next page navigation.
 					the_posts_pagination(
 						array(
-							'prev_text'          => __('Previous page', 'kie'),
-							'next_text'          => __('Next page', 'kie'),
+							'prev_text'          => __('← Previous page', 'kie'),
+							'next_text'          => __('Next page →', 'kie'),
 							'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'kie') . ' </span>',
 						)
 					);

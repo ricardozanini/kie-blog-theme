@@ -404,17 +404,36 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
  }
  
  /* Pagination */
- .pager {
-   margin-bottom: 60px;
-   text-align: left;
- }
- .pager > li > a {
-   width: 140px;
-   padding: 10px 20px;
-   text-align: center;
-   border-radius: 30px;
- }
- 
+body nav.navigation.pagination {
+  background: none;
+  box-shadow: none;
+}
+body nav.navigation.pagination .page-numbers {
+  height: initial;
+  line-height: initial;
+  padding: 0 5px;
+  display: inline-block;
+  vertical-align: middle;
+  text-transform: initial;
+}
+body nav.navigation.pagination .page-numbers.current,
+body nav.navigation.pagination .page-numbers.current:hover {
+  font-weight: 800;
+  background: #475058;
+  color: #FFF;
+  border-radius: 100%;
+  padding: 2px 7px;
+  display: inline-block;
+}
+body nav.navigation.pagination .page-numbers:hover {
+  background: none;
+}
+body nav.navigation.pagination .page-numbers.prev {
+  padding-right: 20px;
+}
+body nav.navigation.pagination .page-numbers.next {
+  padding-left: 20px;
+}
  
  /*
   * Blog posts

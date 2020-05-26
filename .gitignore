@@ -1,1 +1,5 @@
 old
+# see: https://github.com/bmewburn/intelephense-docs/issues/2 / https://github.com/bmewburn/vscode-intelephense/issues/833
+# download this file: https://raw.githubusercontent.com/php-stubs/wordpress-stubs/master/wordpress-stubs.php
+# put in this project's root
+wordpress-stubs.php

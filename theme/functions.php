@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Kogito Theme functions and definitions
+ * KIE Theme functions and definitions
  *
  * Set up the theme and provides some helper functions, which are used in the
  * theme as custom template tags. Others are attached to action and filter
@@ -21,19 +20,19 @@
  * For more information on hooks, actions, and filters,
  * {@link https://codex.wordpress.org/Plugin_API}
  *
- * @package Kogito
- * @subpackage Kogito_Theme
- * @since Kogito Theme 1.0.0.0
+ * @package KIE
+ * @subpackage kie_Theme
+ * @since KIE Theme 1.0.0.0
  */
 
 /**
- * Kogito Theme only works in WordPress 4.4 or later.
+ * KIE Theme only works in WordPress 4.4 or later.
  */
 if (version_compare($GLOBALS['wp_version'], '4.4-alpha', '<')) {
 	require get_template_directory() . '/inc/back-compat.php';
 }
 
-if (!function_exists('kogito_setup')) :
+if (!function_exists('kie_setup')) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -41,19 +40,18 @@ if (!function_exists('kogito_setup')) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 *
-	 * Create your own kogito_setup() function to override in a child theme.
+	 * Create your own kie_setup() function to override in a child theme.
 	 *
-	 * @since  Kogito Theme 1.0.0
+	 * @since  KIE Theme 1.0.0
 	 */
-	function kogito_setup()
+	function kie_setup()
 	{
 		/*
 	 * Make theme available for translation.
-	 * Translations can be filed at WordPress.org. See: https://translate.wordpress.org/projects/wp-themes/kogito
-	 * If you're building a theme based on  Kogito Theme, use a find and replace
-	 * to change 'kogito' to the name of your theme in all the template files
+	 * If you're building a theme based on  KIE Theme, use a find and replace
+	 * to change 'kie' to the name of your theme in all the template files
 	 */
-		load_theme_textdomain('kogito');
+		load_theme_textdomain('kie');
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support('automatic-feed-links');
@@ -69,7 +67,7 @@ if (!function_exists('kogito_setup')) :
 		/*
 	 * Enable support for custom logo.
 	 *
-	 *  @since  Kogito Theme 1.0.0
+	 *  @since  KIE Theme 1.0.0
 	 */
 		add_theme_support('custom-logo', array(
 			'height'      => 240,
@@ -87,8 +85,8 @@ if (!function_exists('kogito_setup')) :
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(array(
-			'primary' => __('Primary Menu', 'kogito'),
-			'responsive' => __('Responsive Menu', 'kogito'),
+			'primary' => __('Primary Menu', 'kie'),
+			'responsive' => __('Responsive Menu', 'kie'),
 		));
 
 		/*
@@ -123,8 +121,8 @@ if (!function_exists('kogito_setup')) :
 		// Indicate widget sidebars can use selective refresh in the Customizer.
 		add_theme_support('customize-selective-refresh-widgets');
 	}
-endif; // kogito_setup
-add_action('after_setup_theme', 'kogito_setup');
+endif; // kie_setup
+add_action('after_setup_theme', 'kie_setup');
 
 /**
  * Sets the content width in pixels, based on the theme's design and stylesheet.
@@ -133,76 +131,56 @@ add_action('after_setup_theme', 'kogito_setup');
  *
  * @global int $content_width
  *
- * @since  Kogito Theme 1.0.0
+ * @since  KIE Theme 1.0.0
  */
-function kogito_content_width()
+function kie_content_width()
 {
-	$GLOBALS['content_width'] = apply_filters('kogito_content_width', 840);
+	$GLOBALS['content_width'] = apply_filters('kie_content_width', 840);
 }
-add_action('after_setup_theme', 'kogito_content_width', 0);
+add_action('after_setup_theme', 'kie_content_width', 0);
 
 /**
  * Registers a widget area.
  *
  * @link https://developer.wordpress.org/reference/functions/register_sidebar/
  *
- * @since  Kogito Theme 1.0.0
+ * @since  KIE Theme 1.0.0
  */
-function kogito_widgets_init()
+function kie_widgets_init()
 {
 	register_sidebar(array(
-		'name'          => __('Sidebar', 'kogito'),
+		'name'          => __('Sidebar', 'kie'),
 		'id'            => 'sidebar-1',
-		'description'   => __('Add widgets here to appear in your sidebar.', 'kogito'),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	));
-
-	register_sidebar(array(
-		'name'          => __('Content Bottom 1', 'kogito'),
-		'id'            => 'sidebar-2',
-		'description'   => __('Appears at the bottom of the content on posts and pages.', 'kogito'),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	));
-
-	register_sidebar(array(
-		'name'          => __('Content Bottom 2', 'kogito'),
-		'id'            => 'sidebar-3',
-		'description'   => __('Appears at the bottom of the content on posts and pages.', 'kogito'),
+		'description'   => __('Add widgets here to appear in your sidebar.', 'kie'),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	));
 }
-add_action('widgets_init', 'kogito_widgets_init');
+add_action('widgets_init', 'kie_widgets_init');
 
-if (!function_exists('kogito_fonts_url')) :
+if (!function_exists('kie_fonts_url')) :
 	/**
-	 * Register Google fonts for  Kogito Theme.
+	 * Register Google fonts for  KIE Theme.
 	 *
-	 * Create your own kogito_fonts_url() function to override in a child theme.
+	 * Create your own kie_fonts_url() function to override in a child theme.
 	 *
-	 * @since  Kogito Theme 1.0.0
+	 * @since  KIE Theme 1.0.0
 	 *
 	 * @return string Google fonts URL for the theme.
 	 */
-	function kogito_fonts_url()
+	function kie_fonts_url()
 	{
 		$fonts_url = '';
 		$fonts     = array();
 		$subsets   = 'latin,latin-ext';
 
-		if ('off' !== _x('on', 'PT Serif font: on or off', 'kogito')) {
+		if ('off' !== _x('on', 'PT Serif font: on or off', 'kie')) {
 			$fonts[] = 'PTSerif:400,700,900,400italic,700italic,900italic';
 		}
 
-		if ('off' !== _x('on', 'Overpass font: on or off', 'kogito')) {
+		if ('off' !== _x('on', 'Overpass font: on or off', 'kie')) {
 			$fonts[] = 'Overpass:400,700,900,400italic,700italic,900italic';
 		}
 
@@ -222,71 +200,70 @@ endif;
  *
  * Adds a `js` class to the root `<html>` element when JavaScript is detected.
  *
- * @since  Kogito Theme 1.0.0
+ * @since  KIE Theme 1.0.0
  */
-function kogito_javascript_detection()
+function kie_javascript_detection()
 {
 	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
 }
-add_action('wp_head', 'kogito_javascript_detection', 0);
+add_action('wp_head', 'kie_javascript_detection', 0);
 
 /**
  * Enqueues scripts and styles.
  *
- * @since  Kogito Theme 1.0.0
+ * @since  KIE Theme 1.0.0
  */
-function kogito_scripts()
+function kie_scripts()
 {
 	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style('kogito-fonts', kogito_fonts_url(), array(), null);
+	wp_enqueue_style('kie-fonts', kie_fonts_url(), array(), null);
 
 	// Add Genericons, used in the main stylesheet.
 	//wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.4.1' );
 
 	// Theme stylesheet.
-	wp_enqueue_style('kogito-style', get_stylesheet_uri());
+	wp_enqueue_style('kie-style', get_stylesheet_uri());
 
-	wp_enqueue_style('kogito-main', get_template_directory_uri() . '/assets/main.css', array('kogito-style'), '20200525');
+	wp_enqueue_style('kie-main', get_template_directory_uri() . '/assets/main.css', array('kie-style'), '20200525');
 
-	wp_enqueue_style('kogito-normalize', get_template_directory_uri() . '/assets/normalize.css', array('kogito-style'), '20200525');
-
+	wp_enqueue_style('kie-normalize', get_template_directory_uri() . '/assets/normalize.css', array('kie-style'), '20200525');
 
 	// Load the Internet Explorer specific stylesheet.
-	//wp_enqueue_style( 'kogito-ie', get_template_directory_uri() . '/css/ie.css', array( 'kogito-style' ), '20160816' );
-	//wp_style_add_data( 'kogito-ie', 'conditional', 'lt IE 10' );
+	//wp_enqueue_style( 'kie-ie', get_template_directory_uri() . '/css/ie.css', array( 'kie-style' ), '20160816' );
+	//wp_style_add_data( 'kie-ie', 'conditional', 'lt IE 10' );
 
 	// Load the Internet Explorer 8 specific stylesheet.
-	//wp_enqueue_style( 'kogito-ie8', get_template_directory_uri() . '/css/ie8.css', array( 'kogito-style' ), '20160816' );
-	//wp_style_add_data( 'kogito-ie8', 'conditional', 'lt IE 9' );
+	//wp_enqueue_style( 'kie-ie8', get_template_directory_uri() . '/css/ie8.css', array( 'kie-style' ), '20160816' );
+	//wp_style_add_data( 'kie-ie8', 'conditional', 'lt IE 9' );
 
 	// Load the Internet Explorer 7 specific stylesheet.
-	//wp_enqueue_style( 'kogito-ie7', get_template_directory_uri() . '/css/ie7.css', array( 'kogito-style' ), '20160816' );
-	//wp_style_add_data( 'kogito-ie7', 'conditional', 'lt IE 8' );
+	//wp_enqueue_style( 'kie-ie7', get_template_directory_uri() . '/css/ie7.css', array( 'kie-style' ), '20160816' );
+	//wp_style_add_data( 'kie-ie7', 'conditional', 'lt IE 8' );
 
 	// Load the html5 shiv.
-	//wp_enqueue_script( 'kogito-html5', get_template_directory_uri() . '/js/html5.js', array(), '3.7.3' );
-	//wp_script_add_data( 'kogito-html5', 'conditional', 'lt IE 9' );
+	//wp_enqueue_script( 'kie-html5', get_template_directory_uri() . '/js/html5.js', array(), '3.7.3' );
+	//wp_script_add_data( 'kie-html5', 'conditional', 'lt IE 9' );
 
-	//wp_enqueue_script( 'kogito-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20160816', true );
+	//wp_enqueue_script( 'kie-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20160816', true );
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
 
 	//if ( is_singular() && wp_attachment_is_image() ) {
-	//		wp_enqueue_script( 'kogito-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20160816' );
+	//		wp_enqueue_script( 'kie-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20160816' );
 	//	}
 
-	wp_enqueue_script('kogito-script', get_template_directory_uri() . '/js/kie.js', array('jquery'), '20200525', false);
+	wp_enqueue_script('kie-script', get_template_directory_uri() . '/js/kie.js', array('jquery'), '20200525', false);
 
-	wp_localize_script('kogito-script', 'screenReaderText', array(
-		'expand'   => __('expand child menu', 'kogito'),
-		'collapse' => __('collapse child menu', 'kogito'),
+	wp_localize_script('kie-script', 'screenReaderText', array(
+		'expand'   => __('expand child menu', 'kie'),
+		'collapse' => __('collapse child menu', 'kie'),
 	));
 }
-add_action('wp_enqueue_scripts', 'kogito_scripts');
+add_action('wp_enqueue_scripts', 'kie_scripts');
 
-function kogito_init_responsive_menu()
+function kie_init_responsive_menu()
 {
 	echo '<script type="text/javascript">
 	  (function() {
@@ -295,17 +272,17 @@ function kogito_init_responsive_menu()
 	  }());
 	</script>';
 }
-add_action('wp_footer', 'kogito_init_responsive_menu');
+add_action('wp_footer', 'kie_init_responsive_menu');
 
 /**
  * Adds custom classes to the array of body classes.
  *
- * @since  Kogito Theme 1.0.0
+ * @since  KIE Theme 1.0.0
  *
  * @param array $classes Classes for the body element.
  * @return array (Maybe) filtered body classes.
  */
-function kogito_body_classes($classes)
+function kie_body_classes($classes)
 {
 	// Adds a class of custom-background-image to sites with a custom background image.
 	if (get_background_image()) {
@@ -329,18 +306,18 @@ function kogito_body_classes($classes)
 
 	return $classes;
 }
-add_filter('body_class', 'kogito_body_classes');
+add_filter('body_class', 'kie_body_classes');
 
 /**
  * Converts a HEX value to RGB.
  *
- * @since  Kogito Theme 1.0.0
+ * @since  KIE Theme 1.0.0
  *
  * @param string $color The original color, in 3- or 6-digit hexadecimal form.
  * @return array Array containing RGB (red, green, and blue) values for the given
  *               HEX code, empty array otherwise.
  */
-function kogito_hex2rgb($color)
+function kie_hex2rgb($color)
 {
 	$color = trim($color, '#');
 
@@ -373,14 +350,14 @@ require get_template_directory() . '/inc/template-tags.php';
  * Add custom image sizes attribute to enhance responsive image functionality
  * for content images
  *
- * @since  Kogito Theme 1.0.0
+ * @since  KIE Theme 1.0.0
  *
  * @param string $sizes A source size value for use in a 'sizes' attribute.
  * @param array  $size  Image size. Accepts an array of width and height
  *                      values in pixels (in that order).
  * @return string A source size value for use in a content image 'sizes' attribute.
  */
-function kogito_content_image_sizes_attr($sizes, $size)
+function kie_content_image_sizes_attr($sizes, $size)
 {
 	$width = $size[0];
 
@@ -395,20 +372,20 @@ function kogito_content_image_sizes_attr($sizes, $size)
 
 	return $sizes;
 }
-add_filter('wp_calculate_image_sizes', 'kogito_content_image_sizes_attr', 10, 2);
+add_filter('wp_calculate_image_sizes', 'kie_content_image_sizes_attr', 10, 2);
 
 /**
  * Add custom image sizes attribute to enhance responsive image functionality
  * for post thumbnails
  *
- * @since  Kogito Theme 1.0.0
+ * @since  KIE Theme 1.0.0
  *
  * @param array $attr Attributes for the image markup.
  * @param int   $attachment Image attachment ID.
  * @param array $size Registered image size or flat array of height and width dimensions.
  * @return string A source size value for use in a post thumbnail 'sizes' attribute.
  */
-function kogito_post_thumbnail_sizes_attr($attr, $attachment, $size)
+function kie_post_thumbnail_sizes_attr($attr, $attachment, $size)
 {
 	if ('post-thumbnail' === $size) {
 		is_active_sidebar('sidebar-1') && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 60vw, (max-width: 1362px) 62vw, 840px';
@@ -416,24 +393,24 @@ function kogito_post_thumbnail_sizes_attr($attr, $attachment, $size)
 	}
 	return $attr;
 }
-add_filter('wp_get_attachment_image_attributes', 'kogito_post_thumbnail_sizes_attr', 10, 3);
+add_filter('wp_get_attachment_image_attributes', 'kie_post_thumbnail_sizes_attr', 10, 3);
 
 /**
  * Modifies tag cloud widget arguments to have all tags in the widget same font size.
  *
- * @since  Kogito Theme 1.0.0
+ * @since  KIE Theme 1.0.0
  *
  * @param array $args Arguments for tag cloud widget.
  * @return array A new modified arguments.
  */
-function kogito_widget_tag_cloud_args($args)
+function kie_widget_tag_cloud_args($args)
 {
 	$args['largest'] = 1;
 	$args['smallest'] = 1;
 	$args['unit'] = 'em';
 	return $args;
 }
-add_filter('widget_tag_cloud_args', 'kogito_widget_tag_cloud_args');
+add_filter('widget_tag_cloud_args', 'kie_widget_tag_cloud_args');
 
 
 function filter_the_excerpt_in_the_main_loop($excerpt)

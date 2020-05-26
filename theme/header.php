@@ -5,9 +5,9 @@
  *
  * Displays all of the head element and everything up until the "site-content" div.
  *
- * @package Kogito
- * @subpackage Kogito_Theme
- * @since Kogito Theme 1.0.0
+ * @package KIE
+ * @subpackage KIE_Theme
+ * @since KIE Theme 1.0.0
  */
 
 require get_template_directory() . '/inc/custom-menu.php';
@@ -45,7 +45,7 @@ require get_template_directory() . '/inc/custom-menu.php';
 					'container' => 'div',
 					'depth' => 1,
 					'items_wrap' => '%3$s',
-					'walker' => new Kogito_Walker_Nav_Menu()
+					'walker' => new KIE_Walker_Nav_Menu()
 				));
 				?>
 			</nav>

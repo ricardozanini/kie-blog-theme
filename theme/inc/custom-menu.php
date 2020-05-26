@@ -2,8 +2,10 @@
 
 /**
  * Custom walker class.
+ * 
+ * @since  KIE Theme 1.0.0
  */
-class Kogito_Walker_Nav_Menu extends Walker_Nav_Menu
+class KIE_Walker_Nav_Menu extends Walker_Nav_Menu
 {
 
     /**
@@ -39,11 +41,11 @@ class Kogito_Walker_Nav_Menu extends Walker_Nav_Menu
     }
 }
 
-add_filter('wp_nav_menu_items', 'kogito_add_logo_item_menu', 10, 2);
+add_filter('wp_nav_menu_items', 'kie_add_logo_item_menu', 10, 2);
 /**
  * Add Menu Item to end of menu
  */
-function kogito_add_logo_item_menu($items, $args)
+function kie_add_logo_item_menu($items, $args)
 {
     if ($args->theme_location == 'primary') {
         $items =  '<a href="http://kie.org" class="logo"></a> <h1>KIE</h1>' . $items . '<a href="#" class="responsive-menu-button">&#9776;</a>';

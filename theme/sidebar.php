@@ -3,9 +3,9 @@
 /**
  * The template for the sidebar containing the main widget area
  *
- * @package Kogito
- * @subpackage Kogito_Theme
- * @since Kogito Theme 1.0.0
+ * @package KIE
+ * @subpackage KIE_Theme
+ * @since KIE Theme 1.0.0
  */
 ?>
 <div id="blog_sidebar" class="column column-25 blog-sidebar">

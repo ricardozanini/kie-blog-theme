@@ -20,10 +20,28 @@ if (!function_exists('kie_entry_meta')) :
 	 */
 	function kie_entry_meta()
 	{
-		printf('<div class="blog-post-meta">by %1$s - %2$s %3$s</div>', get_the_author_link(), get_the_date(), kie_entry_taxonomies());
+		$author_link =  get_the_author_link();
+		if (null !== get_page_by_path(PAGE_FILTER)) {
+			$author_link = '<a href="' . kie_get_author_href() .
+				'" rel="author" title="Posts by ' . get_the_author_meta('display_name') . '">' .
+				get_the_author_meta('display_name') . '</a>';
+		}
+		printf('<div class="blog-post-meta">by %1$s - %2$s %3$s</div>', $author_link, get_the_date(), kie_entry_taxonomies());
 	}
 endif;
 
+if (!function_exists('kie_get_author_href')) :
+	define("PAGE_FILTER", "filter");
+
+	function kie_get_author_href()
+	{
+		$author_link =  get_the_author_meta('url');
+		if (null !== get_page_by_path(PAGE_FILTER)) {
+			$author_link = esc_url(site_url('/' . PAGE_FILTER .  '?authors=') . get_the_author_meta('user_nicename'));
+		}
+		return $author_link;
+	}
+endif;
 
 if (!function_exists('kie_entry_taxonomies')) :
 	/**

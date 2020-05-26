@@ -421,7 +421,7 @@ body nav.navigation.pagination .page-numbers.current:hover {
   font-weight: 800;
   background: #475058;
   color: #FFF;
-  border-radius: 100%;
+  border-radius: 35px;
   padding: 2px 7px;
   display: inline-block;
 }

@@ -1,13 +1,14 @@
 <?php
+
 /**
- * KIE Theme functions and definitions
- *
- * Set up the theme and provides some helper functions, which are used in the
- * theme as custom template tags. Others are attached to action and filter
- * hooks in WordPress to change core functionality.
- *
- * When using a child theme you can override certain functions (those wrapped
- * in a function_exists() call) by defining them first in your child theme's
+		 * KIE Theme functions and definitions
+		 *
+		 * Set up the theme and provides some helper functions, which are used in the
+		 * theme as custom template tags. Others are attached to action and filter
+		 * hooks in WordPress to change core functionality.
+	 *
+	 * When using a child theme you can override certain functions (those wrapped
+	 * in a function_exists() call) by defining them first in your child theme's
  * functions.php file. The child theme's functions.php file is included before
  * the parent theme's file, so the child theme functions would be used.
  *
@@ -245,6 +246,10 @@ function kie_scripts()
 	//wp_script_add_data( 'kie-html5', 'conditional', 'lt IE 9' );
 
 	//wp_enqueue_script( 'kie-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20160816', true );
+
+	// support for posts with embedded Gist
+	wp_register_script('gist', 'https://cdn.jsdelivr.net/npm/gist-embed@1.0.4/dist/gist-embed.min.js', array(), '1.0.4', false);
+	wp_enqueue_script('gist');
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
